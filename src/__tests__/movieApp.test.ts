@@ -1,13 +1,26 @@
-import { init, handleSubmit } from "../ts/movieApp";
- 
-jest.mock("./../services/movieService.ts");
+import { getData } from "../ts/services/movieService";
+import * as movieApp from "./../ts/movieApp";
 
-describe("movieApp", () => {
-  test("it should render movies", async () => {
-    await init();
+jest.mock("./../ts/services/movieService.ts");
 
-    const personTags = document.getElementsByClassName("person");
+describe("testing init", () => {
+  let mockedCreateHtml: jest.SpyInstance<void>;
+  beforeEach(() => {
+    mockedCreateHtml = jest.spyOn(movieApp, "createHtml");
+  })
+  test("it should call function handleSubmit", async() => {
+      let searchText = "hej";
+      const searchTextElement = document.createElement("input")
+      searchTextElement.id = "searchText"
+      document.body.appendChild(searchTextElement)
 
-    expect(personTags).toHaveLength(3);
+      movieApp.handleSubmit();
+      await getData(searchText)
+      expect(mockedCreateHtml).toHaveBeenCalled();
+      
+    })
+    
   });
-});
+ 
+
+
