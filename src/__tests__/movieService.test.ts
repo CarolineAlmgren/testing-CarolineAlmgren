@@ -5,6 +5,8 @@ describe("getMovies mocked function", ()=>{
         const searchText = "test"
         const result = await getMovies(searchText)
 
-        expect(result.length).toBeGreaterThan(0);
+        expect(result.length).toBeGreaterThan(0)
+        expect(searchText).toBe("test")
+        expect(Array.isArray(result)).toBe(true)
     });
 })

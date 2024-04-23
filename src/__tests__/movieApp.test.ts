@@ -1,35 +1,59 @@
 
 //import { IMovie } from "../ts/models/Movie";
 //import { getData } from "../ts/services/movieService";
+
 import * as movieApp from "./../ts/movieApp";
 
 jest.mock("./../ts/services/movieService.ts");
 
 describe("testing init", () => {
-  let mockedCreateHtml: jest.SpyInstance<void>;
+  let mockedInit: jest.SpyInstance<Promise<void>>
+
   beforeEach(() => {
-    mockedCreateHtml = jest.spyOn(movieApp, "createHtml");
-  
+    mockedInit = jest.spyOn(movieApp, "init")
   })
-
-  test("it should call function handleSubmit", async() => {
-     
-      document.body.innerHTML = `
-      <div id="app">
-      <form id="searchForm">
-        <input type="text" id="searchText" placeholder="Skriv titel här" />
-        <button type="submit" id="search">Sök</button>
-      </form>
-      <div id="movie-container"></div>
-    </div>
-      `;
     
-      movieApp.handleSubmit();
+    test("It should call init function", () =>{
+      const form = document.createElement("form")
+      form.id="searchForm"
+      document.body.appendChild(form)
+      movieApp.init()
+      expect(mockedInit).toHaveBeenCalled();
+      })
+    })
 
-      expect(mockedCreateHtml).toHaveBeenCalled();
+    describe("test createHtml", ()=> {
+      let mockedCreateHtml: jest.SpyInstance<void>
     
-  })
-  })
 
+    beforeEach(() => {
+     mockedCreateHtml = jest.spyOn(movieApp, "createHtml")
+    })
+    test("It should create HTML", ()=> {
+      
+      const movies = [
+        {
+          Title: "Namn",
+          imdbID: "1234",
+          Type: "Film",
+          Poster: "img",
+          Year: "1989",
+        },
+        {
+          Title: "Namn2",
+          imdbID: "5678",
+          Type: "Film",
+          Poster: "img",
+          Year: "1990",
+        }
+      ]
+      const container = document.createElement("div")
+      container.id="movie-container"
+
+      movieApp.createHtml(movies, container)
+      expect(mockedCreateHtml).toHaveBeenCalled()
+      expect(movies[1].imdbID).toBe("5678")
+    })
+  })
 
 
