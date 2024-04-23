@@ -6,6 +6,7 @@ import * as movieApp from "./../ts/movieApp";
 
 jest.mock("./../ts/services/movieService.ts");
 
+
 describe("testing init", () => {
   let mockedInit: jest.SpyInstance<Promise<void>>
 
@@ -47,7 +48,7 @@ describe("testing init", () => {
           Year: "1990",
         }
       ]
-      const container = document.createElement("div")
+      let container = document.createElement("div")
       container.id="movie-container"
 
       movieApp.createHtml(movies, container)
@@ -56,4 +57,22 @@ describe("testing init", () => {
     })
   })
 
+  describe("test displayNoResult", ()=>{
+    let mockedNoResult: jest.SpyInstance<void>
+
+    beforeEach(()=> {
+      mockedNoResult = jest.spyOn(movieApp, "displayNoResult")
+    })
+    test("It should give us a text with inga sökresultat att visa", ()=>{
+      let container = document.createElement("div") as HTMLDivElement
+      let noMessage = document.createElement("p")
+      noMessage.innerHTML = "Inga sökresultat att visa";
+      container.appendChild(noMessage);
+      
+      movieApp.displayNoResult(noMessage)
+      expect(mockedNoResult).toHaveBeenCalled();
+      expect(noMessage.innerHTML).toContain("Inga sökresultat att visa")
+
+    })
+  })
 
