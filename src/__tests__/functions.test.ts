@@ -21,7 +21,7 @@ describe("test movieSort", ()=> {
       }
     ]
       const desc: boolean = true
-
+      
       movieSort(movies, desc)
       expect(movies[0].Title).toBe("Namn")
     })

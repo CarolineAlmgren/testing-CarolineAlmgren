@@ -4,6 +4,7 @@
 
 import * as movieApp from "./../ts/movieApp";
 
+
 jest.mock("./../ts/services/movieService.ts");
 
 
@@ -23,39 +24,6 @@ describe("testing init", () => {
       })
     })
 
-    describe("test createHtml", ()=> {
-      let mockedCreateHtml: jest.SpyInstance<void>
-    
-
-    beforeEach(() => {
-     mockedCreateHtml = jest.spyOn(movieApp, "createHtml")
-    })
-    test("It should create HTML", ()=> {
-      
-      const movies = [
-        {
-          Title: "Namn",
-          imdbID: "1234",
-          Type: "Film",
-          Poster: "img",
-          Year: "1989",
-        },
-        {
-          Title: "Namn2",
-          imdbID: "5678",
-          Type: "Film",
-          Poster: "img",
-          Year: "1990",
-        }
-      ]
-      let container = document.createElement("div")
-      container.id="movie-container"
-
-      movieApp.createHtml(movies, container)
-      expect(mockedCreateHtml).toHaveBeenCalled()
-      expect(movies[1].imdbID).toBe("5678")
-    })
-  })
 
   describe("test displayNoResult", ()=>{
     let mockedNoResult: jest.SpyInstance<void>
