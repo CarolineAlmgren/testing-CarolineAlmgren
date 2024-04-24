@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1713961001505" clover="3.2.0">
-  <project timestamp="1713961001506" name="All files">
-    <metrics statements="47" coveredstatements="34" conditionals="9" coveredconditionals="3" methods="10" coveredmethods="6" elements="66" coveredelements="43" complexity="0" loc="47" ncloc="47" packages="2" files="3" classes="3"/>
+<coverage generated="1713963720635" clover="3.2.0">
+  <project timestamp="1713963720635" name="All files">
+    <metrics statements="47" coveredstatements="37" conditionals="9" coveredconditionals="3" methods="10" coveredmethods="9" elements="66" coveredelements="49" complexity="0" loc="47" ncloc="47" packages="2" files="3" classes="3"/>
     <package name="ts">
       <metrics statements="42" coveredstatements="32" conditionals="9" coveredconditionals="3" methods="7" coveredmethods="6"/>
       <file name="functions.ts" path="C:\Users\carro\OneDrive\Skrivbord\Testning\Inlämningsuppgift 2\testing-CarolineAlmgren\src\ts\functions.ts">
@@ -54,14 +54,14 @@
       </file>
     </package>
     <package name="ts.services">
-      <metrics statements="5" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+      <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
       <file name="movieService.ts" path="C:\Users\carro\OneDrive\Skrivbord\Testning\Inlämningsuppgift 2\testing-CarolineAlmgren\src\ts\services\movieService.ts">
-        <metrics statements="5" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="5" count="1" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
       </file>
     </package>
   </project>

@@ -1,13 +1,25 @@
-import { getData } from "../ts/services/__mocks__/movieService";
+import axios from "axios";
+import { getData } from "../ts/services/movieService";
+import { movies } from "../ts/services/__mocks__/movieService";
 
-describe("getMovie function", ()=>{
-    test("should return an array of movies when searchText is provided", async ()=> {
-        const searchText = "test"
-        const result = await getData(searchText)
+jest.mock("axios");
 
-        expect(result.length).toBeGreaterThan(0)
-        expect(searchText).toBe("test")
-        expect(Array.isArray(result)).toBe(true)
-        expect(result[0].Title).toBe("MockadFilm 1")
-    });
-})
+const mockResponse = {
+  data: {
+    Search:movies,
+  }
+}
+
+describe("testing getData", () => {
+  test("it should give a resolve", async () => {
+    axios.get = jest.fn().mockResolvedValue(mockResponse);
+    const movies = await getData("");
+    expect(movies).toHaveLength(2);
+  });
+
+  test("it should give a reject", async () => {
+    axios.get = jest.fn().mockRejectedValue(mockResponse);
+    const movies = await getData("");
+    expect(movies).toHaveLength(0);
+  });
+});

@@ -19,8 +19,6 @@ describe("Test handleSubmit", () => {
      </form>
      <div id="movie-container"></div>`
       });
-
-      
     
     
  test("It sould test handleSubmit function", async ()=> {

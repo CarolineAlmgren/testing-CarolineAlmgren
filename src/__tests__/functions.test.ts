@@ -24,5 +24,6 @@ describe("test movieSort", ()=> {
       
       movieSort(movies, desc)
       expect(movies[0].Title).toBe("Namn")
+      expect(movies[1].Title).toBe("Namn2")
     })
 })
