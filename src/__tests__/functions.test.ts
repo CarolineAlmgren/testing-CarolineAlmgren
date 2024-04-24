@@ -1,29 +1,33 @@
 import { movieSort } from "../ts/functions";
 import { IMovie } from "../ts/models/Movie";
 
-describe("test movieSort", ()=> {
+describe("movieSort function", ()=> {
     test("it should sort movies ", ()=> {
-       movieSort([]);
-
-      const movies:IMovie[] = [{
-        Title: "Namn",
-        imdbID: "1234",
-        Type: "Film",
-        Poster: "img",
-        Year: "1989",
+      const unsortedMovies:IMovie[] = [{
+        Title: "Namn",imdbID: "1234",Type: "Film",Poster: "img",Year: "1989",
       },
       {
-        Title: "Namn2",
-        imdbID: "5678",
-        Type: "Film",
-        Poster: "img",
-        Year: "1990",
+        Title: "Namn2",imdbID: "5678",Type: "Film",Poster: "img",Year: "1990",
       }
     ]
-      const desc: boolean = true
+      const desc: boolean = false
       
-      movieSort(movies, desc)
-      expect(movies[0].Title).toBe("Namn")
-      expect(movies[1].Title).toBe("Namn2")
+      const sortedMovies = movieSort(unsortedMovies, desc)
+      expect(sortedMovies[0].Title).toBe("Namn2")
+      expect(sortedMovies[1].Title).toBe("Namn")
     })
-})
+    test("should sort movies in ascending order by default", () => {
+      const unsortedMovies = [{
+        Title: "Namn", imdbID: "1234",Type: "Film",Poster: "img",Year: "1989",
+      },
+      {
+        Title: "Namn2",imdbID: "5678",Type: "Film",Poster: "img",Year: "1990",
+      }]
+ 
+    const asc:boolean = true;
+    const sortedMovies = movieSort(unsortedMovies, asc);
+
+    expect(sortedMovies[0].Title).toBe("Namn");
+    expect(sortedMovies[1].Title).toBe("Namn2");
+  })
+    });

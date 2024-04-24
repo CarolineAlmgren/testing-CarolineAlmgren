@@ -31,7 +31,7 @@ describe("testing init", () => {
     beforeEach(()=> {
       mockedNoResult = jest.spyOn(movieApp, "displayNoResult")
     })
-    test("It should give us a text with inga sökresultat att visa", ()=>{
+    test("It should give us a text with: inga sökresultat att visa", ()=>{
       let container = document.createElement("div") as HTMLDivElement
       let noMessage = document.createElement("p")
       noMessage.innerHTML = "Inga sökresultat att visa";
