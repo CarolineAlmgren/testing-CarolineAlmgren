@@ -1,4 +1,4 @@
-import { IMovie } from "./ts/models/Movie";
+import { IMovie } from "./models/Movie";
 
 export const createHtml = (movies: IMovie[], container: HTMLDivElement) => {
     for (let i = 0; i < movies.length; i++) {

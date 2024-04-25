@@ -1,4 +1,4 @@
-import { createHtml } from "./../createHtml";
+import { createHtml } from "../ts/createHtml";
 import { movies } from "../ts/services/__mocks__/movieService";
 
 describe("test createHtml", ()=> {
