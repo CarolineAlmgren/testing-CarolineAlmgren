@@ -5,14 +5,17 @@
 import * as movieApp from "./../ts/movieApp";
 
 
+
 jest.mock("./../ts/services/movieService.ts");
 
 
 describe("testing init", () => {
   let mockedInit: jest.SpyInstance<Promise<void>>
+ 
 
   beforeEach(() => {
     mockedInit = jest.spyOn(movieApp, "init")
+    
   })
     
     test("It should call init function", () =>{
@@ -20,6 +23,7 @@ describe("testing init", () => {
       form.id="searchForm"
       document.body.appendChild(form)
       movieApp.init()
+
       expect(mockedInit).toHaveBeenCalled();
       })
     })
