@@ -1,18 +1,18 @@
 //import { IMovie } from "../ts/models/Movie";
 import * as createHtml from "./../ts/createHtml";
-import * as displayNoResult from "./../ts/createHtml";
 import { handleSubmit } from "../ts/handleSubmit";
+import * as movieApp from "./../ts/movieApp";
+
 
 jest.mock("./../ts/services/movieService.ts");
 
 describe("Test handleSubmit", () => {
     let mockedCreateHtml: jest.SpyInstance<void>
     let mockedDisplayNo: jest.SpyInstance<void>
-    
 
     beforeEach(() => {
         mockedCreateHtml = jest.spyOn(createHtml, "createHtml");
-        mockedDisplayNo = jest.spyOn(displayNoResult, "createHtml")
+        mockedDisplayNo = jest.spyOn(movieApp, "displayNoResult")
         
         document.body.innerHTML = 
         `<form id="searchForm">
@@ -27,8 +27,8 @@ describe("Test handleSubmit", () => {
     await handleSubmit();
     expect(mockedCreateHtml).toHaveBeenCalled()
     expect(mockedDisplayNo).toHaveBeenCalled()
-    
 
  })
 
 })
+

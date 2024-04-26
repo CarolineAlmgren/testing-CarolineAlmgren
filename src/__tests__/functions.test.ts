@@ -9,13 +9,18 @@ describe("movieSort function", ()=> {
       },
       {
         Title: "Star Wars",imdbID: "8765",Type: "Film",Poster: "Img",Year: "2023",
-      }
+      },
+      {Title: "Star Wars",imdbID: "8765",Type: "Film",Poster: "Img",Year: "2023",
+
+    }, {Title: "Bamse",imdbID: "8765",Type: "Film",Poster: "Img",Year: "2023",
+  }
     ]
       const desc: boolean = false
       
       const sortedMovies = movieSort(unsortedMovies, desc)
+      console.log(sortedMovies)
       expect(sortedMovies[0].Title).toBe("Star Wars")
-      expect(sortedMovies[1].Title).toBe("Harry Potter")
+      expect(sortedMovies[2].Title).toBe("Harry Potter")
     })
     test("should sort movies in ascending order by default", () => {
       const unsortedMovies = [{
@@ -47,7 +52,7 @@ describe("movieSort function", ()=> {
       { Title:"Carolines Film",imdbID: "5678", Type: "Film", Poster: "", Year: "2023" }, 
     ];
   
-    // Förväntar oss att det inte blir något fel ändå när vi sorterar filmerna
+    // Förväntar oss att det inte blir något fel ändå när vi sorterar filmerna fast en saknar bild
     expect(() => movieSort(movies)).not.toThrow();
 
     // Förväntar oss att resultatlistan är densamma som ingångslistan

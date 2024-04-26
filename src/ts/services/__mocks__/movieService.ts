@@ -19,12 +19,12 @@ export const movies: IMovie[] = [
         },
       ]
 
-     
-
-      export const getData = async (searchText:string): Promise<IMovie[]> => {
+      export const getData = jest.fn().mockReturnValueOnce(
+       async (searchText:string): Promise<IMovie[]> => {
        if(searchText){}
         return new Promise((resolve) => {
         
           resolve(movies)
         })
-      }
+      })
+      .mockReturnValueOnce([])
