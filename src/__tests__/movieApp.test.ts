@@ -18,9 +18,13 @@ describe("testing init", () => {
     
   })
     
-    test("It should call init function", () =>{
-      const form = document.createElement("form")
-      form.id="searchForm"
+    test("It should test init function", () =>{
+
+      document.body.innerHTML= `<form id="searchForm">
+      <input type="text" id="searchText" placeholder="Skriv titel här" />
+      <button type="submit" id="search">Sök</button>
+    </form>`
+      const form = document.getElementById("searchForm") as HTMLFormElement
       document.body.appendChild(form)
       movieApp.init()
 
