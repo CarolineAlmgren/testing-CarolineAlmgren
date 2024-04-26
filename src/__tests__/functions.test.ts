@@ -45,7 +45,7 @@ describe("movieSort function", ()=> {
   })
 
 // Testar en film som inte råkar innehålla en bild
- test("It should include movies without a title in the sorted list ", () => {
+ test("It should include movies without a poster in the sorted list ", () => {
   const movies: IMovie[] = [
       { Title: "Harry Potter", imdbID: "4321", Type: "Film", Poster: "Img", Year: "2022" },
       { Title: "Star Wars", imdbID: "8765", Type: "Film", Poster: "Img", Year: "2023" },
